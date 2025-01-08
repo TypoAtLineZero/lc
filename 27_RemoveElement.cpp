@@ -3,14 +3,14 @@
 class Solution {
 public:
     int removeElement(std::vector<int>& nums, int val) {
-        std::vector<int>::iterator it;
-        for (it = nums.begin(); it != nums.end();) {
-            if (*it == val) {
-                nums.erase(it);
-            } else {
-                ++it;
-            }
-        }
+        // std::vector<int>::iterator it;
+        // for (it = nums.begin(); it != nums.end();) {
+        //    if (*it == val) {
+        //        nums.erase(it);
+        //    } else {
+        //        ++it;
+        //    }
+        // }
     }
 };
 
