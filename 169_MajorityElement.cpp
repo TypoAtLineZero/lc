@@ -7,15 +7,16 @@ public:
         std::unordered_map<int, int> umap;
 
         for (int i = 0; i < nums.size(); ++i) {
-            if (nums.find(nums[i]) == nums.end()) {
+            if (umap.find(nums[i]) == umap.end()) {
                 
             } 
+        }
     }
 };
 
 int main(void) {
     Solution n;
-    std:vector<int> nums = {1,2,1};
+    std::vector<int> nums = {1,2,1};
 
     n.majorityElement(nums);
 }
