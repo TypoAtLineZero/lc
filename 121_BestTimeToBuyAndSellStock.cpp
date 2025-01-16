@@ -9,27 +9,23 @@ public:
         }
 
         int buy = prices[0];
-        int sell = prices[1];
         int profit = 0;
-        bool isDecreasing = true;
-        for (int i = 0; i < prices.size(); ++i) {
-            std::cout << i << std::endl;
-            if (prices[i] <= prices[i + 1]) {
-                // Found increasing price
-                isDecreasing = false;
-            } 
-            if (prices[i] < buy) {
-                buy = prices[i];
-                profit = sell - buy;
-            }
-            if (prices[i] - buy > profit) {
-                sell = prices[i];
+        //bool isDecreasing = true;
+        for (int price : prices) {
+            // Range based 
+            std::cout << price << std::endl;
+            if (price < buy) {
+                buy = price;
+            } else {
+                int current_profit = price - buy;
+                if (current_profit > profit) {
+                    profit = current_profit;
+                }
             }
         }
-        if (isDecreasing) {
-            return 0;
-        }
-        profit = sell - buy;
+        //if (isDecreasing) {
+        //    return 0;
+        //}
         return profit;
     }
 };
