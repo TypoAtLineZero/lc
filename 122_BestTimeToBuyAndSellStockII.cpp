@@ -10,10 +10,8 @@ public:
 
         int buy = prices[0];
         int profit = 0;
-        //bool isDecreasing = true;
         for (int price : prices) {
             // Range based 
-            std::cout << price << std::endl;
             if (price < buy) {
                 buy = price;
             } else {
@@ -23,16 +21,14 @@ public:
                 }
             }
         }
-        //if (isDecreasing) {
-        //    return 0;
-        //}
+        std::cout << profit << std::endl;
         return profit;
     }
 };
 
 int main(void) {
     Solution n;
-    std::vector<int> nums = {1,2,4};
+    std::vector<int> nums = {7,1,5,3,6,4};
 
     n.maxProfit(nums);
 }

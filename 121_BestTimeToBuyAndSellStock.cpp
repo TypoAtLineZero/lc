@@ -10,7 +10,6 @@ public:
 
         int buy = prices[0];
         int profit = 0;
-        //bool isDecreasing = true;
         for (int price : prices) {
             // Range based 
             std::cout << price << std::endl;
@@ -23,9 +22,6 @@ public:
                 }
             }
         }
-        //if (isDecreasing) {
-        //    return 0;
-        //}
         return profit;
     }
 };
