@@ -8,21 +8,14 @@ public:
             return 0;
         }
 
-        int buy = prices[0];
-        int profit = 0;
-        for (int price : prices) {
-            // Range based 
-            if (price < buy) {
-                buy = price;
-            } else {
-                int current_profit = price - buy;
-                if (current_profit > profit) {
-                    profit = current_profit;
-                }
+        int totalProfit = 0;
+        for (size_t i = 1; i < prices.size(); ++i) {
+            // Accumulate profit if today's price is higher than yesterday's
+            if (prices[i] > prices[i - 1]) {
+                totalProfit += prices[i] - prices[i - 1];
             }
         }
-        std::cout << profit << std::endl;
-        return profit;
+        return totalProfit;
     }
 };
 
