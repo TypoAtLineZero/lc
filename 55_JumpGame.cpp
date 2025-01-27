@@ -3,20 +3,21 @@
 class Solution {
 public:
     bool canJump(std::vector<int>& nums) {
-        int jumpSize = nums[0];
-        if (nums.size() == 1) {
+    int maxReach = 0; // Tracks the farthest index you can reach
+    int n = nums.size();
+
+    for (int i = 0; i < n; ++i) {
+        if (i > maxReach) {
+            // If the current index is beyond the farthest reachable index, you're stuck
+            return false;
+        }
+        maxReach = std::max(maxReach, i + nums[i]); // Update the farthest reachable index
+        if (maxReach >= n - 1) {
+            // If we can reach or exceed the last index, return true
             return true;
         }
-
-        for (int i = 0; i < nums.size() - 1; ++i) {
-            if (jumpSize >= nums.size() - 1) {
-                return true;
-            } else {
-                jumpSize += nums[i];
-                i += nums[i];
-            }
-        }
-        return false;
+    }
+    return false; // If we exit the loop without returning, we cannot reach the end
     }
 };
 
