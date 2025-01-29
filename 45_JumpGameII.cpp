@@ -1,3 +1,5 @@
+// Solution explained: https://algo.monster/liteproblems/45
+
 #include <vector>
 
 class Solution {
