@@ -1,4 +1,39 @@
+#include <vector>
 
+class Solution {
+public:
+    int canCompleteCircuit(std::vector<int>& gas, std::vector<int>& cost) {
+        int gasSum = 0;
+        int costSum = 0;
+
+        for (int i = 0; i < gas.size(); ++i) {
+            gasSum += gas[i];
+            costSum += cost[i];
+        }
+
+        if (gasSum < costSum) {
+            return -1;
+        }
+
+        int total = 0;
+        int res = 0;
+
+        for (int j = 0; j < gas.size(); ++j) {
+            total += gas[j] - cost[j];
+            if (total < 0) {
+                total = 0;
+                res = j + 1;
+            }
+        }
+
+        return res;
+    }
+};
+
+
+int main(void) {
+    Solution s;
+}
 
 /*
 There are n gas stations along a circular route, where the amount of gas at the ith station is gas[i].
