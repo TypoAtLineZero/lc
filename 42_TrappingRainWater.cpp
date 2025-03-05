@@ -1,14 +1,26 @@
 class Solution {
 public:
     int trap(vector<int>& height) {
-        
+        int n = height.size();
+        int level = 0;
+        int waterTrapped = 0;
+        bool valid = false;
+
+        for (int i = 0; i < n; ++i) {
+            // Checking for empty fields, which cannot trap water
+             if (height[i] < 1 && valid == false) {
+                continue;
+             } else {
+                valid = true;
+             }
+
+            // From here, water can be contained
+            if (level == 0 && valid == true) {
+                level = height[i];
+            }
+        }
     }
 };
-
-int main (void) {
-    Solution s;
-}
-
 
 /*
 Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
