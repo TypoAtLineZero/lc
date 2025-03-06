@@ -2,7 +2,7 @@ class Solution {
 public:
     int trap(vector<int>& height) {
         int n = height.size();
-        int level = 0;
+        int currentLevel = 0;
         int waterTrapped = 0;
         bool valid = false;
 
@@ -15,10 +15,14 @@ public:
              }
 
             // From here, water can be contained
-            if (level == 0 && valid == true) {
-                level = height[i];
+            if (currentLevel <= height[i] && valid == true) {
+                currentLevel = height[i];
+            } else {
+                waterTrapped += currentLevel - height[i];
             }
         }
+
+        return waterTrapped;
     }
 };
 
